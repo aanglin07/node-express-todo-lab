@@ -38,7 +38,7 @@ router.get('/:id', (req, res) => {
     return res.status(200).json(result);
     }
     else{
-        res.status(400).json({Message: "Item not found"})
+        res.status(404).json({Message: "Item not found"})
     }
 })
 
