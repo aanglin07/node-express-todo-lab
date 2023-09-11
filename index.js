@@ -8,4 +8,5 @@ app.use(express.json())
 app.get('/', (req, res) => res.send('Hello world'))
 app.use('/items', itemRoutes)
 
+
 app.listen(port, () => console.log(`API server ready on http://localhost:${port}`))

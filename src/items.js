@@ -2,6 +2,8 @@ import express from 'express'
 const router = express.Router()
 const items = [{id: 1, task: "buy groceries"}, {id:2, task: "clean room"}]
 
+
+
 router.get('/', (req, res) => {
     return res.json(items)
 })
@@ -28,8 +30,18 @@ router.post('/', (req, res) => {
     return res.status(201).json(req.body)
 })
 
+//Router to get items by id
 router.get('/:id', (req, res) => {
-    return res.send(`You just requested item that should be with id ${req.params.id}`) // we are using the send function here because we are not returning an object but only a string
+    const id = (req.params.id);
+    const result = items.find((item) => item.id == id);
+    if (result){
+    return res.status(200).json(result);
+    }
+    else{
+        res.status(404).json({Message: "Item not found"})
+    }
 })
+
+
 
 export default router
