@@ -56,8 +56,7 @@ router.put('/:id', (req, res) =>{
         }
     })
 
-    if (missingProperties.length) { // we do not need a specific comparison here because a 0 is essentially the same as false
-        // we have missing properties!
+    if (missingProperties.length) { 
         let errorMessage = []
         missingProperties.forEach(prop => {
             errorMessage.push(`Missing property: ${prop}`)
