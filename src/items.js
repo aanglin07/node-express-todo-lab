@@ -89,6 +89,8 @@ router.put('/:id', (req, res) =>{
     
 })
 
+
+//Router to delete items
 router.delete('/:id', (req, res) =>{
     const id = parseInt(req.params.id);
     const searchIndex = items.findIndex(item => item.id === id);
@@ -103,6 +105,7 @@ router.delete('/:id', (req, res) =>{
 
 })
 
+//Router to update items using a patch request
 router.patch('/:id', (req, res) =>{
     let id = parseInt(req.params.id)
     let updateItem = items.findIndex(item => item.id === id);
